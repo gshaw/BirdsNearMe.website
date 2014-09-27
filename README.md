@@ -1,3 +1,3 @@
 # Birds Near Me Website
 
-http://gshaw.ca/birdsnearme/
+http://birdsnearme.com
