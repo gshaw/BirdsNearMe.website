@@ -1,3 +1,3 @@
 # Birds Near Me Website
 
-http://birdsnearme.com
+https://birdsnearme.com
