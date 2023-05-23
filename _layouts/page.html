@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+{% include head.html %}
+
+<body>
+  <main class="container">
+    <h1>
+      <a href="/">
+        <img alt="Birds Near Me app icon" src="icon.png" width="50" style="border-radius: 10%">
+      </a>
+      <span style="vertical-align: middle">{{ page.title }}</span>
+    </h1>
+
+    {{ content }}
+
+    <hr>
+
+    <p>
+      <a href="/">Birds Near Me</a>
+      •
+      <a href="/support">Support</a>
+      •
+      <a href="/privacy">Privacy Policy</a>
+      •
+      © 2014-{{ 'now' | date: "%Y" }} <a href="https://gshaw.ca">Gerry Shaw</a>
+    </p>
+  </main>
+</body>
+
+</html>
