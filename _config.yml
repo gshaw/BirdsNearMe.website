@@ -13,8 +13,9 @@ kramdown:
   input: GFM
 
 exclude: [
-  "Gemfile.lock",
   "Gemfile",
+  "Gemfile.lock",
+  "justfile",
   "LICENSE",
   "README.md"
 ]
