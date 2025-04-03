@@ -1,0 +1,14 @@
+[tools]
+ruby = "3.2.2" # Cloudflare Build System version 2 using Ruby 3.2.2
+
+[tasks.install]
+run = "bundle install"
+
+[tasks.dev]
+run = "bundle exec jekyll serve --livereload --open-url --port 4002"
+
+[tasks.deploy]
+run = "git push"
+
+[settings]
+experimental = true
