@@ -1,9 +1,10 @@
+ruby "3.2.2"
+
 source "https://rubygems.org"
 
-require "json"
-require "open-uri"
-versions = JSON.parse(::URI.open("https://pages.github.com/versions.json").read)
+gem "base64"
+gem "bigdecimal"
+gem "csv"
 
-gem "github-pages", versions["github-pages"]
-
+gem "jekyll"
 gem "webrick", "~> 1.8"
