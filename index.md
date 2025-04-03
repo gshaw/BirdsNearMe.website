@@ -36,6 +36,6 @@ Powered by eBird to provide an accurate list of birds that have been recently sp
 
 <a href="https://apps.apple.com/us/app/birds-near-me/id918377574?itsct=apps_box_badge&amp;itscg=30200" style="overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1412812800" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
 
-<img style="padding:10px; width: 120px; height: 120px" alt="QR Code Download Link" src="https://tools-qr-production.s3.amazonaws.com/output/apple-toolbox/0249d82197cad0a78fc3a2740356bedf/b4ec48915ff24b92f39fb91fbb996f60.png">
+<img style="padding:10px; width: 120px; height: 120px" alt="QR Code Download Link" src="/qrcode.png">
 
 </div>
