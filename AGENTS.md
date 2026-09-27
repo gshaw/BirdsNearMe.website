@@ -34,6 +34,12 @@ production; other branches get a preview URL. The build runs `bundle exec jekyll
 with `RUBY_VERSION` set in the Cloudflare project, so a Ruby bump means changing `Gemfile`,
 `.mise.toml` and that variable together.
 
+Ruby stays on 3.4.4 because build image v3 preinstalls it. Any other version compiles
+from source and adds about 3 minutes to every build. `Gemfile` and `Gemfile.lock` are
+identical across the five Jekyll sites (gshaw.ca, LandNav, AEDSim, Birds Near Me,
+weisearts.com): change them in one, then copy both files to the others.
+<!-- cspell:ignore weisearts gshaw -- the sibling sites' domains -->
+
 GitHub Actions runs `mise run -c check` on pushes and PRs. It doesn't block Cloudflare.
 
 ## Layout
