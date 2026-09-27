@@ -3,6 +3,8 @@ title: Birds Near Me
 ogimage: /icon.png
 ---
 
+<!-- cspell:ignore Merve Ayomak -- icon designer's name -->
+
 Worldwide birding field guide for iOS. Free. No ads. Privacy respected.
 
 <img alt="Screenshot of Birds Near Me" src="screenshots/1.png" width="320px">
@@ -13,16 +15,16 @@ The bird guide for everybody everywhere in the world. Find what birds are near y
 
 Powered by eBird to provide an accurate list of birds that have been recently spotted in your exact area.
 
-### Features
+## Features
 
 - Search for pictures, songs, sightings and information on more than 10,000 birds from across the entire world
 - Birding hotspots around the globe
 - Specific filter for notable sightings near you
 - View a custom list of recent bird sightings near your location
-- Supports iOS 8+
+- Supports iOS 10 and later
 - Designed and developed by a birder, for birders
 
-### Acknowledgements
+## Acknowledgements
 
 - [eBird](https://ebird.org) and all the birders for contributing their sightings
 - [Flickr](https://www.flickr.com/search/?q=birding) and photographers for sharing their photos

@@ -1,14 +1,43 @@
 [tools]
-ruby = "3.2.2" # Cloudflare Build System version 2 using Ruby 3.2.2
+ruby = "4.0.7"
+node = "24.4.1"
+"npm:cspell" = "9.1.5"
+"npm:markdownlint-cli2" = "0.22.1"
+"gem:html-proofer" = "5.2.1"
 
 [tasks.install]
 run = "bundle install"
 
 [tasks.dev]
-run = "bundle exec jekyll serve --livereload --open-url --port 4002"
+run = "bundle exec jekyll serve --livereload --livereload-port 35702 --open-url --port 4002"
+
+[tasks.build]
+run = "bundle exec jekyll build --quiet"
+
+[tasks.spell]
+run = "cspell lint --no-progress ."
+
+[tasks.markdownlint]
+run = """
+out=$(markdownlint-cli2 '**/*.md' 2>&1) && echo "Markdown lint passed" || { echo "$out"; exit 1; }
+"""
+
+# Internal links only. External sites rate-limit and flake; check them by hand
+# with `htmlproofer _site` when it matters.
+[tasks.links]
+depends = ["build"]
+run = "htmlproofer _site --disable-external --no-check-internal-hash"
+
+[tasks.check]
+depends = ["spell", "markdownlint", "links"]
+
+# Run after a deploy lands. Cloudflare Pages builds on push to main.
+[tasks.verify]
+run = """
+curl -fsS https://birdsnearme.com/ | grep -q "<title>Birds Near Me" && echo "birdsnearme.com is up"
+test "$(curl -s -o /dev/null -w '%{http_code}' https://birdsnearme.com/no-such-page/)" = 404 && echo "404 page works"
+"""
 
 [tasks.deploy]
+depends = ["check"]
 run = "git push"
-
-[settings]
-experimental = true

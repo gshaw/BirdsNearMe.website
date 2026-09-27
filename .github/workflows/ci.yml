@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: jdx/mise-action@v4
+
+      - run: bundle install
+
+      # -c keeps going after a failure so one run shows every problem.
+      - name: Check
+        env:
+          MISE_TASK_OUTPUT: interleave
+        run: mise run -c check

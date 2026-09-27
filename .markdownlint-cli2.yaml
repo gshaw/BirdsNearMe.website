@@ -1,0 +1,5 @@
+ignores:
+  - "_site/**"
+  - "vendor/**"
+  - ".claude/**"
+  - "CLAUDE.md" # import shim (@AGENTS.md), not prose

@@ -1,1 +1,16 @@
+# Jekyll build output and caches
 _site
+.jekyll-cache
+.jekyll-metadata
+
+# Bundler
+.bundle
+vendor/bundle
+
+# Editor and agent tooling
+.vscode
+.ruby-lsp
+.claude
+
+# macOS
+.DS_Store
