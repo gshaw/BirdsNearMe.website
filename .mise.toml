@@ -1,5 +1,7 @@
 [tools]
-ruby = "4.0.7"
+# Cloudflare Pages build image v3 preinstalls 3.4.4; any other version
+# compiles from source on every build. See AGENTS.md before changing.
+ruby = "3.4.4"
 node = "24.4.1"
 "npm:cspell" = "9.1.5"
 "npm:markdownlint-cli2" = "0.22.1"
