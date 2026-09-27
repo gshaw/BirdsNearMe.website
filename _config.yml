@@ -2,9 +2,12 @@
 title: Birds Near Me
 description: Worldwide birding field guide for iOS. Free. No ads. Privacy respected.
 url: https://birdsnearme.com
+icon: /icon.png
+start_year: 2014
 author:
   name: Gerry Shaw
   email: gerry_shaw@yahoo.com
+  url: https://gshaw.ca
 
 # Build settings
 markdown: kramdown
@@ -13,16 +16,18 @@ kramdown:
   input: GFM
 
 exclude: [
+  "AGENTS.md",
+  "CLAUDE.md",
+  "cspell.config.yaml",
   "Gemfile",
   "Gemfile.lock",
-  "justfile",
   "LICENSE",
-  "README.md"
+  "README.md",
+  "vendor"
 ]
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "pages"
     values:

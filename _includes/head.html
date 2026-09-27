@@ -1,9 +1,17 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% if page.ogimage and page.ogimage != '' %}
-  <meta property="og:image" content="{{ page.ogimage }}" />
-  {% endif %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  {% assign description = page.description | default: site.description -%}
+  {% comment %}Cloudflare Pages serves /privacy.html at /privacy.{% endcomment -%}
+  {% assign canonical = page.url | remove: ".html" | absolute_url -%}
+  <meta name="description" content="{{ description | escape }}">
+  <link rel="canonical" href="{{ canonical }}">
+
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ page.ogimage | default: site.icon | absolute_url }}">
 
   <link rel="icon" sizes="any" href="/favicon.192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -17,5 +25,4 @@
       margin-bottom: 0.2em
     }
   </style>
-  <title>{{ page.title }}</title>
 </head>

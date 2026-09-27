@@ -1,0 +1,3 @@
+MD013: false # line-length
+MD025: false # single-title/single-h1: Jekyll pages put the title in front matter
+MD033: false # no-inline-html: pages embed images, video and badges as HTML

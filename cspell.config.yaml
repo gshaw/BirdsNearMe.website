@@ -1,0 +1,20 @@
+$schema: "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json"
+version: "0.2"
+language: en
+allowCompoundWords: true
+ignorePaths:
+  - ".git"
+  - ".claude"
+  - "_site"
+  - ".jekyll-cache"
+  - "vendor"
+  - "Gemfile.lock"
+  - "pico.min.css"
+words:
+  - gshaw
+  - kramdown
+  - ogimage # front matter key for the Open Graph image
+  - pico
+  - qrcode
+  - flickr # photo source for the app
+  - xeno # xeno-canto, recordings source for the app

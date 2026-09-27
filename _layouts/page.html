@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 {% include head.html %}
 
@@ -7,7 +7,7 @@
   <main class="container">
     <h1>
       <a href="/">
-        <img alt="Birds Near Me app icon" src="icon.png" width="50" style="border-radius: 10%">
+        <img alt="{{ site.title }} app icon" src="{{ site.icon }}" width="50" style="border-radius: 10%">
       </a>
       <span style="vertical-align: middle">{{ page.title }}</span>
     </h1>
@@ -17,13 +17,13 @@
     <hr>
 
     <p>
-      <a href="/">Birds Near Me</a>
+      <a href="/">{{ site.title }}</a>
       •
       <a href="/support">Support</a>
       •
       <a href="/privacy">Privacy Policy</a>
       •
-      © 2014-{{ 'now' | date: "%Y" }} <a href="https://gshaw.ca">Gerry Shaw</a>
+      © {{ site.start_year }} - {{ 'now' | date: "%Y" }} <a href="{{ site.author.url }}">{{ site.author.name }}</a>
     </p>
   </main>
 </body>
