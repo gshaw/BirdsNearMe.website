@@ -11,13 +11,13 @@ Worldwide birding field guide for iOS. Free. No ads. Privacy respected.
 <img alt="Screenshot of Birds Near Me" src="screenshots/3.png" width="320px">
 <img alt="Screenshot of Birds Near Me" src="screenshots/5.png" width="320px">
 
-The bird guide for everybody everywhere in the world. Find what birds are near you anywhere in the world or find pictures, songs, locations and information about any bird in the world.
+The bird guide for everybody everywhere in the world. Find what birds are near you anywhere in the world or find pictures, songs and information about any bird in the world.
 
 Powered by eBird to provide an accurate list of birds that have been recently spotted in your exact area.
 
 ## Features
 
-- Search for pictures, songs, sightings and information on more than 10,000 birds from across the entire world
+- Pictures, songs and information on more than 10,000 birds from across the entire world
 - Birding hotspots around the globe
 - Specific filter for notable sightings near you
 - View a custom list of recent bird sightings near your location
