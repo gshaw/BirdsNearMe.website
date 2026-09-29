@@ -11,7 +11,7 @@ mise run dev       # http://localhost:4002 with livereload
 mise run check     # build, spell check, markdown lint, internal links
 ```
 
-Pushing to `main` publishes the site on Cloudflare Pages. `mise run verify` checks the live site afterwards.
+Deploy with `mise run deploy`. It refuses unless you're on a clean `main` with nothing newer on GitHub, then checks, pushes, waits for Cloudflare Pages and runs `mise run verify`. `mise run deploy-status` says whether `main` is live. The rule is in [Workshop's deploy note](https://github.com/gshaw/Workshop/blob/main/Tooling/deploy.md).
 
 ## Powered By
 
