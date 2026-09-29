@@ -54,6 +54,7 @@ run = [
   "git push origin main",
   "scripts/pages-status.sh --wait",
   "mise run verify",
+  'echo "✅ $(git rev-parse --short HEAD) is live on birdsnearme.com and verified."',
 ]
 
 [tasks.deploy-status]
