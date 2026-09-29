@@ -33,13 +33,28 @@ run = "htmlproofer _site --disable-external --no-check-internal-hash"
 [tasks.check]
 depends = ["spell", "markdownlint", "links"]
 
-# Run after a deploy lands. Cloudflare Pages builds on push to main.
+# Run by deploy once Cloudflare Pages has built main.
 [tasks.verify]
 run = """
-curl -fsS https://birdsnearme.com/ | grep -q "<title>Birds Near Me" && echo "birdsnearme.com is up"
-test "$(curl -s -o /dev/null -w '%{http_code}' https://birdsnearme.com/no-such-page/)" = 404 && echo "404 page works"
+set -e
+curl -fsS https://birdsnearme.com/ | grep -q "<title>Birds Near Me"
+echo "birdsnearme.com is up"
+test "$(curl -s -o /dev/null -w '%{http_code}' https://birdsnearme.com/no-such-page/)" = 404
+echo "404 page works"
 """
 
+# The one way to production. See Workshop's Tooling/deploy.md. Cloudflare Pages
+# builds main on push, so the push is the deploy and main may be ahead of origin.
+# The guard runs again after check in case check changed a file.
 [tasks.deploy]
-depends = ["check"]
-run = "git push"
+run = [
+  "scripts/deploy-guard.sh --allow-ahead",
+  "mise run check",
+  "scripts/deploy-guard.sh --allow-ahead",
+  "git push origin main",
+  "scripts/pages-status.sh --wait",
+  "mise run verify",
+]
+
+[tasks.deploy-status]
+run = "scripts/pages-status.sh"

@@ -20,8 +20,9 @@ Keep it minimal. Don't add gems, plugins, pages or build steps unless asked.
 mise run install   # bundle install
 mise run dev       # serve on :4002 with livereload
 mise run check     # build + spell + markdownlint + internal links
-mise run verify    # curl the live site after a deploy
-mise run deploy    # check, then git push
+mise run deploy    # guard, check, push, wait for Pages, verify
+mise run verify    # curl the live site
+mise run deploy-status  # is main live?
 ```
 
 **Read the counts, not just the exit code.** html-proofer prints `Ran on N files` and cspell
@@ -39,6 +40,13 @@ from source and adds about 3 minutes to every build. `Gemfile` and `Gemfile.lock
 identical across the five Jekyll sites (gshaw.ca, LandNav, AEDSim, Birds Near Me,
 weisearts.com): change them in one, then copy both files to the others.
 <!-- cspell:ignore weisearts gshaw -- the sibling sites' domains -->
+
+**Deploy with `mise run deploy`**, never a bare `git push` to `main`.
+`scripts/deploy-guard.sh` refuses unless the branch is `main`, the tree is clean and
+`origin/main` isn't ahead. Then it runs `check`, pushes, waits for the "Cloudflare Pages"
+check run on the commit (`scripts/pages-status.sh --wait`) and runs `verify`. A merged PR
+also deploys, since Pages builds every push to `main`. The rule and the list of sites are
+in [Workshop's deploy note](https://github.com/gshaw/Workshop/blob/main/Tooling/deploy.md).
 
 GitHub Actions runs `mise run -c check` on pushes and PRs. It doesn't block Cloudflare.
 
