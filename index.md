@@ -34,10 +34,10 @@ Powered by eBird to provide an accurate list of birds that have been recently sp
 - [Merve Ayomak](https://merveayomak.com) for the application icon
 - [Lucas Larroche](https://picocss.com) for the website styling
 
-<div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem">
 
-<a href="https://apps.apple.com/us/app/birds-near-me/id918377574?itsct=apps_box_badge&amp;itscg=30200" style="overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1412812800" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+<a href="https://apps.apple.com/app/birds-near-me/id918377574" style="overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1412812800" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
 
-<img style="padding:10px; width: 120px; height: 120px" alt="QR Code Download Link" src="/qrcode.png">
+<img style="width: 160px; height: 160px" alt="QR code: scan to get Birds Near Me on the App Store" src="/qrcode.svg">
 
 </div>
