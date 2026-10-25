@@ -14,8 +14,6 @@ jobs:
 
       - uses: jdx/mise-action@v4
 
-      - run: bundle install
-
       # -c keeps going after a failure so one run shows every problem.
       - name: Check
         env:

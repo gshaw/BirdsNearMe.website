@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+  <main class="container">
+    <h1>
+      <a href="/">
+        <img alt="{{ site.Title }} app icon" src="{{ site.Params.icon }}" width="50" style="border-radius: 10%">
+      </a>
+      <span style="vertical-align: middle">{{ .Title }}</span>
+    </h1>
+
+    {{ block "main" . }}{{ .Content }}{{ end }}
+
+    <hr>
+
+    <p>
+      <a href="/">{{ site.Title }}</a>
+      •
+      <a href="/support">Support</a>
+      •
+      <a href="/privacy">Privacy Policy</a>
+      •
+      © {{ site.Params.start_year }} - {{ now.Year }} <a href="{{ site.Params.author.url }}">{{ site.Params.author.name }}</a>
+    </p>
+  </main>
+</body>
+
+</html>

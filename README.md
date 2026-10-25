@@ -5,9 +5,8 @@
 ## Develop
 
 ```sh
-mise install       # Ruby, Node, cspell, markdownlint, html-proofer
-mise run install   # bundle install
-mise run dev       # http://localhost:4002 with livereload
+mise install       # Hugo, Node, cspell, markdownlint, lychee
+mise run dev       # http://localhost:4002 with live reload
 mise run check     # build, spell check, markdown lint, internal links
 ```
 
@@ -18,5 +17,5 @@ Deploy with `mise run deploy`. It refuses unless you're on a clean `main` with n
 - Domain Registrar: [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/)
 - DNS: [Cloudflare DNS](https://www.cloudflare.com/dns/)
 - Hosting: [Cloudflare Pages](https://pages.cloudflare.com)
-- Build System: [Jekyll](https://jekyllrb.com)
+- Build System: [Hugo](https://gohugo.io)
 - CSS: [Pico.css](https://picocss.com)
