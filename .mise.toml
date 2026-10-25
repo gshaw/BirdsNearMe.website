@@ -1,11 +1,13 @@
 [tools]
-# Cloudflare Pages reads HUGO_VERSION from the project's settings: change both
-# together. See AGENTS.md.
+# Workers Builds reads HUGO_VERSION from the Worker's two build triggers: change
+# all three together. See AGENTS.md.
 hugo = "0.167.0"
 node = "24.4.1"
 "npm:cspell" = "9.1.5"
 "npm:markdownlint-cli2" = "0.22.1"
 lychee = "0.24.2"
+# Workers Builds deploys with this version too (npx wrangler@…).
+"npm:wrangler" = "4.143.1"
 
 [tasks.dev]
 run = "hugo server --port 4002 --openBrowser"
@@ -31,7 +33,7 @@ run = "lychee --offline --no-progress --fallback-extensions html --root-dir \"$P
 [tasks.check]
 depends = ["spell", "markdownlint", "links"]
 
-# Run by deploy once Cloudflare Pages has built main.
+# Run by deploy once Workers Builds has deployed main.
 [tasks.verify]
 run = """
 set -e
@@ -41,8 +43,8 @@ test "$(curl -s -o /dev/null -w '%{http_code}' https://birdsnearme.com/no-such-p
 echo "404 page works"
 """
 
-# The one way to production. See Workshop's Tooling/deploy.md. Cloudflare Pages
-# builds main on push, so the push is the deploy and main may be ahead of origin.
+# The one way to production. See Workshop's Tooling/deploy.md. Workers Builds
+# builds and deploys main on push, so the push is the deploy and main may be ahead of origin.
 # The guard runs again after check in case check changed a file.
 [tasks.deploy]
 run = [
@@ -50,10 +52,10 @@ run = [
   "mise run check",
   "scripts/deploy-guard.sh --allow-ahead",
   "git push origin main",
-  "scripts/pages-status.sh --wait",
+  "scripts/build-status.sh --wait",
   "mise run verify",
   'echo "✅ $(git rev-parse --short HEAD) is live on birdsnearme.com and verified."',
 ]
 
 [tasks.deploy-status]
-run = "scripts/pages-status.sh"
+run = "scripts/build-status.sh"
