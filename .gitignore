@@ -9,3 +9,6 @@ resources
 
 # macOS
 .DS_Store
+
+# Wrangler state from a deploy run on the Mac
+.wrangler

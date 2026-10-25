@@ -4,7 +4,7 @@
 # of sites are in Workshop's Tooling/deploy.md.
 #
 #   scripts/deploy-guard.sh                # a Worker: main must equal origin/main
-#   scripts/deploy-guard.sh --allow-ahead  # Cloudflare Pages: the push is the deploy
+#   scripts/deploy-guard.sh --allow-ahead  # Workers Builds: the push is the deploy
 set -euo pipefail
 
 refuse() {

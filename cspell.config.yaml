@@ -9,6 +9,7 @@ ignorePaths:
   - "resources"
   - "pico.min.css"
 words:
+  - birdsnearme # the domain and the Worker's name
   - gshaw
   - ogimage # front matter key for the Open Graph image
   - pico
