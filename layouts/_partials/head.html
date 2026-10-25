@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  {{- $description := or .Params.description site.Params.description }}
+  {{- /* Cloudflare serves /privacy.html at /privacy. */}}
+  {{- $canonical := strings.TrimSuffix ".html" (strings.TrimSuffix "index.html" .Permalink) }}
+  <meta name="description" content="{{ $description }}">
+  <link rel="canonical" href="{{ $canonical }}">
+
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:url" content="{{ $canonical }}">
+  <meta property="og:image" content="{{ or .Params.ogimage site.Params.icon | absURL }}">
+
+  <link rel="icon" sizes="any" href="/favicon.192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/pico.min.css">
+  <style>
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-bottom: 0.2em
+    }
+  </style>
+</head>

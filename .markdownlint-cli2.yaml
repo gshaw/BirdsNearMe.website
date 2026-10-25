@@ -1,5 +1,5 @@
 ignores:
-  - "_site/**"
-  - "vendor/**"
+  - "public/**"
+  - "resources/**"
   - ".claude/**"
   - "CLAUDE.md" # import shim (@AGENTS.md), not prose

@@ -7,39 +7,35 @@ Background for AI agents working in this repo.
 ## What this is
 
 The marketing site for Birds Near Me, a worldwide birding field guide for iPhone built on
-eBird data, live at [birdsnearme.com](https://birdsnearme.com). A Jekyll site on Cloudflare
+eBird data, live at [birdsnearme.com](https://birdsnearme.com). A Hugo site on Cloudflare
 Pages. The app itself lives in a separate repo, `BirdsNearMe`.
 
 **The repo and the site are both public.** Anything committed here is published.
 
-Keep it minimal. Don't add gems, plugins, pages or build steps unless asked.
+Keep it minimal. Don't add a theme, Hugo modules, pages or build steps unless asked. Every
+template is in `layouts/`.
 
 ## Commands
 
 ```sh
-mise run install   # bundle install
-mise run dev       # serve on :4002 with livereload
+mise run dev       # hugo server on :4002 with live reload
 mise run check     # build + spell + markdownlint + internal links
 mise run deploy    # guard, check, push, wait for Pages, verify
 mise run verify    # curl the live site
 mise run deploy-status  # is main live?
 ```
 
-**Read the counts, not just the exit code.** html-proofer prints `Ran on N files` and cspell
+**Read the counts, not just the exit code.** lychee prints `N OK` and cspell
 prints `Files checked: N`. A green run over zero files checked nothing.
 
 ## Deploys
 
 Cloudflare Pages project `birdsnearme-website` builds every push. `main` goes to
-production; other branches get a preview URL. The build runs `bundle exec jekyll build`
-with `RUBY_VERSION` set in the Cloudflare project, so a Ruby bump means changing `Gemfile`,
-`.mise.toml` and that variable together.
-
-Ruby stays on 3.4.4 because build image v3 preinstalls it. Any other version compiles
-from source and adds about 3 minutes to every build. `Gemfile` and `Gemfile.lock` are
-identical across the five Jekyll sites (gshaw.ca, LandNav, AEDSim, Birds Near Me,
-weisearts.com): change them in one, then copy both files to the others.
-<!-- cspell:ignore weisearts gshaw -- the sibling sites' domains -->
+production; other branches get a preview URL. The build runs
+`hugo --cleanDestinationDir --panicOnWarning` into `public/`, with `HUGO_VERSION` set in the
+Cloudflare project for production and preview, so a Hugo bump means changing `.mise.toml`
+and that variable together. `--panicOnWarning` makes a deprecation fail the build rather
+than scroll past.
 
 **Deploy with `mise run deploy`**, never a bare `git push` to `main`.
 `scripts/deploy-guard.sh` refuses unless the branch is `main`, the tree is clean and
@@ -52,13 +48,21 @@ GitHub Actions runs `mise run -c check` on pushes and PRs. It doesn't block Clou
 
 ## Layout
 
-- `_config.yml` holds the site name, description, icon, copyright start year and author.
+- `hugo.toml` holds the site name, description, icon, copyright start year and author.
   The layout reads them; don't hard-code them in HTML.
-- `_layouts/page.html` is the only layout. `_includes/head.html` has the meta and Open Graph
-  tags; a page can override the description with `description:` and the preview image with
-  `ogimage:` in front matter.
-- `index.md`, `support.md`, `privacy.md`, `404.md`.
-- `pico.min.css` is Pico 1.5, copied in rather than loaded from a CDN.
+- `layouts/baseof.html` is the page shell. `layouts/_partials/head.html` has the meta and
+  Open Graph tags; a page can override the description with `description:` and the preview
+  image with `ogimage:` in front matter.
+- `content/`: `_index.md` (the home page), `support.md`, `privacy.md`, `404.md`.
+  `uglyURLs` keeps pages at `/privacy.html`, as before; Cloudflare serves them at
+  `/privacy`, the canonical URL.
+- `static/` is published as it is: icons, the QR code, screenshots, and `pico.min.css`,
+  Pico 1.5 copied in rather than loaded from a CDN.
+- `public/` is build output; it's gitignored.
+
+Hugo doesn't run template code inside Markdown files: a loop over data goes in a
+shortcode in `layouts/_shortcodes/`. A link with spaces needs angle brackets:
+`[text](<mailto:x?subject=A B>)`, and a blank line inside a raw HTML block ends it.
 
 ## Writing
 

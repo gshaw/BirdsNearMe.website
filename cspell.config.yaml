@@ -5,14 +5,11 @@ allowCompoundWords: true
 ignorePaths:
   - ".git"
   - ".claude"
-  - "_site"
-  - ".jekyll-cache"
-  - "vendor"
-  - "Gemfile.lock"
+  - "public"
+  - "resources"
   - "pico.min.css"
 words:
   - gshaw
-  - kramdown
   - ogimage # front matter key for the Open Graph image
   - pico
   - qrcode

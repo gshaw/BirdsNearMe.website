@@ -7,9 +7,9 @@ ogimage: /icon.png
 
 Worldwide birding field guide for iOS. Free. No ads. Privacy respected.
 
-<img alt="Screenshot of Birds Near Me" src="screenshots/1.png" width="320px">
+<p><img alt="Screenshot of Birds Near Me" src="screenshots/1.png" width="320px">
 <img alt="Screenshot of Birds Near Me" src="screenshots/3.png" width="320px">
-<img alt="Screenshot of Birds Near Me" src="screenshots/5.png" width="320px">
+<img alt="Screenshot of Birds Near Me" src="screenshots/5.png" width="320px"></p>
 
 The bird guide for everybody everywhere in the world. Find what birds are near you anywhere in the world or find pictures, songs and information about any bird in the world.
 
@@ -35,9 +35,6 @@ Powered by eBird to provide an accurate list of birds that have been recently sp
 - [Lucas Larroche](https://picocss.com) for the website styling
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem">
-
 <a href="https://apps.apple.com/app/birds-near-me/id918377574" style="overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1412812800" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
-
 <img style="width: 160px; height: 160px" alt="QR code: scan to get Birds Near Me on the App Store" src="/qrcode.svg">
-
 </div>
