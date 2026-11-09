@@ -31,7 +31,7 @@ Powered by eBird to provide an accurate list of birds that have been recently sp
 - [Xeno-Canto](https://www.xeno-canto.org) and recordists for sharing their audio recordings
 - [Wikipedia](https://www.wikipedia.org) authors, editors and staff for the species introductions
 - [Open source developers](https://swiftpackageindex.com) for sharing their work
-- [Merve Ayomak](https://merveayomak.com) for the application icon
+- Merve Ayomak for the application icon
 - [Lucas Larroche](https://picocss.com) for the website styling
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem">
